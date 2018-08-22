@@ -6,7 +6,7 @@ ESLint config for Athom B.V. JavaScript projects.
 In your JavaScript project:
 
 ```bash
-$ npm install eslint-config-athom
+$ npm install --save-dev eslint eslint-config-athom
 ```
 
 Then create a file `/.eslintrc.json` in your project's root:
