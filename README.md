@@ -6,7 +6,7 @@ ESLint config for Athom B.V. JavaScript projects.
 In your JavaScript project:
 
 ```bash
-$ npm install eslint-config-athom
+$ npm install --save-dev eslint eslint-config-athom
 ```
 
 Then create a file `/.eslintrc.json` in your project's root:
@@ -14,6 +14,14 @@ Then create a file `/.eslintrc.json` in your project's root:
 ```javascript
 {
   "extends": "athom"
+}
+```
+
+Now, edit your project's `/package.json` file to contain the following:
+
+```json
+"engines": {
+  "node": ">=8.0.0"
 }
 ```
 

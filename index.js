@@ -7,12 +7,14 @@ module.exports = {
     "plugin:node/recommended"
   ],
   "rules": {
+    "node/no-missing-require": ["error", {"allowModules": ["homey"]}],
     "node/exports-style": ["error", "module.exports"],
     "no-underscore-dangle": "off",
     "max-len": ["warn", {
       "code": 300
     }],
     "consistent-return": "off",
+    "no-bitwise": "off",
     "no-param-reassign": ["warn"],
     "no-await-in-loop": "off",
     "no-empty": "off",
@@ -27,6 +29,10 @@ module.exports = {
     "no-continue": "off"
   },
   "parserOptions": {
-    "sourceType": "script"
+    "sourceType": "script",
+    "ecmaVersion": 2018
+  },
+  "settings": {
+    "import/core-modules": ["homey"]
   }
 }
