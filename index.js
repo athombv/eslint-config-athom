@@ -1,18 +1,21 @@
 'use strict';
 
 module.exports = {
-  "plugins": ["node"],
+  "parserOptions": {
+    "sourceType": "script",
+    "ecmaVersion": 2020
+  },
+
   "extends": [
     "airbnb-base",
     "plugin:node/recommended"
   ],
+
   "rules": {
     "node/no-missing-require": ["error", {"allowModules": ["homey"]}],
     "node/exports-style": ["error", "module.exports"],
     "no-underscore-dangle": "off",
-    "max-len": ["warn", {
-      "code": 300
-    }],
+    "max-len": ["warn", { "code": 300 }],
     "consistent-return": "off",
     "no-bitwise": "off",
     "no-param-reassign": ["warn"],
@@ -28,10 +31,7 @@ module.exports = {
     "class-methods-use-this": "off",
     "no-continue": "off"
   },
-  "parserOptions": {
-    "sourceType": "script",
-    "ecmaVersion": 2018
-  },
+
   "settings": {
     "import/core-modules": ["homey"]
   }
