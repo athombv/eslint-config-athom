@@ -4,7 +4,7 @@
   "description": "ESLint config for Athom B.V.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/cli.git"
+    "url": "https://github.com/athombv/eslint-config-athom.git"
   },
   "main": "index.js",
   "scripts": {
