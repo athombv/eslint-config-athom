@@ -11,6 +11,10 @@ module.exports = {
   "rules": {
     "strict": ["error", "global"],
 
+    "lines-between-class-members": ["error", "always", {
+      "exceptAfterSingleLine": true
+    }],
+
     "node/no-missing-require": ["error", { "allowModules": ["homey"] }],
 
     "no-underscore-dangle": "off",
