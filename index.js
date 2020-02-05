@@ -58,6 +58,8 @@ module.exports = {
       { "overrides": { "if": "any" } }
     ],
 
+    "brace-style": ["error", "1tbs"],
+
     "no-restricted-syntax": [
       "error",
       {
