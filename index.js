@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   "parser": "babel-eslint",
@@ -11,9 +11,11 @@ module.exports = {
   "rules": {
     "strict": ["error", "global"],
 
-    "lines-between-class-members": ["error", "always", {
-      "exceptAfterSingleLine": true
-    }],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
 
     "node/no-missing-require": ["error", { "allowModules": ["homey"] }],
 
@@ -35,7 +37,7 @@ module.exports = {
 
     "dot-notation": "off",
 
-    'space-before-function-paren': [
+    "space-before-function-paren": [
       "error",
       { "anonymous": "never", "named": "never", "asyncArrow": "always" }
     ],
@@ -55,6 +57,8 @@ module.exports = {
       "beside",
       { "overrides": { "if": "any" } }
     ],
+
+    "brace-style": ["error", "1tbs"],
 
     "no-restricted-syntax": [
       "error",
