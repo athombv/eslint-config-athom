@@ -1,10 +1,7 @@
 'use strict';
 
 module.exports = {
-  "parserOptions": {
-    "sourceType": "script",
-    "ecmaVersion": 2020
-  },
+  "parser": "babel-eslint",
 
   "extends": [
     "airbnb-base",
