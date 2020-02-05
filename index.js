@@ -12,6 +12,8 @@ module.exports = {
   ],
 
   "rules": {
+    "strict": ["error", "global"],
+
     "node/no-missing-require": ["error", { "allowModules": ["homey"] }],
 
     "no-underscore-dangle": "off",
