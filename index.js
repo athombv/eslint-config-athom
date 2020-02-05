@@ -10,6 +10,8 @@ module.exports = {
 
   "rules": {
     "strict": ["error", "global"],
+    
+    "no-await-in-loop": "off",
 
     "lines-between-class-members": [
       "error",
