@@ -7,6 +7,10 @@ module.exports = {
     "airbnb-base",
     "plugin:node/recommended"
   ],
+  
+  "parserOptions": {
+    "sourceType": "script"
+  },
 
   "rules": {
     "strict": ["error", "global"],
