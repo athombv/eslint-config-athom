@@ -23,6 +23,8 @@ module.exports = {
       { "exceptAfterSingleLine": true }
     ],
 
+    "arrow-body-style": "off",
+
     "node/no-missing-require": ["error", { "allowModules": ["homey"] }],
 
     "no-underscore-dangle": "off",
