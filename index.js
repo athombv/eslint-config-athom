@@ -7,6 +7,10 @@ module.exports = {
     "airbnb-base",
     "plugin:node/recommended"
   ],
+  
+  "parserOptions": {
+    "sourceType": "script"
+  },
 
   "rules": {
     "strict": ["error", "global"],
@@ -18,6 +22,8 @@ module.exports = {
       "always",
       { "exceptAfterSingleLine": true }
     ],
+
+    "arrow-body-style": "off",
 
     "node/no-missing-require": ["error", { "allowModules": ["homey"] }],
 
