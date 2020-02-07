@@ -22,6 +22,8 @@ module.exports = {
       "always",
       { "exceptAfterSingleLine": true }
     ],
+    
+    "prefer-destructuring": ["error", {"object": true, "array": false}]
 
     "arrow-body-style": "off",
 
