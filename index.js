@@ -23,7 +23,14 @@ module.exports = {
       { "exceptAfterSingleLine": true }
     ],
     
-    "prefer-destructuring": ["error", {"object": true, "array": false}]
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": { "array": false, "object": true },
+        "AssignmentExpression": { "array": false, "object": false },
+      },
+      { "enforceForRenamedProperties": false }
+    ],
 
     "arrow-body-style": "off",
 
