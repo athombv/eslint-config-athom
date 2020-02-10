@@ -6,7 +6,7 @@ module.exports = {
   "extends": [
     "airbnb-base",
     "plugin:node/recommended",
-    "./rules/test",
+    "./rules/test", // Import rules for test files (currently mostly mocha rules)
   ],
   
   "parserOptions": {
