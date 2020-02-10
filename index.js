@@ -1,7 +1,5 @@
 "use strict";
 
-const testConfig = require('./rules/test.js');
-
 module.exports = {
   "parser": "babel-eslint",
 
