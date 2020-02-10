@@ -7,7 +7,8 @@ module.exports = {
 
   "extends": [
     "airbnb-base",
-    "plugin:node/recommended"
+    "plugin:node/recommended",
+    "./rules/test",
   ],
   
   "parserOptions": {
@@ -90,5 +91,4 @@ module.exports = {
   "settings": {
     "import/core-modules": ["homey"]
   },
-  ...testConfig,
 }
