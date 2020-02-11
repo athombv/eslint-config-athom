@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-athom",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "ESLint config for Athom B.V.",
   "repository": {
     "type": "git",
