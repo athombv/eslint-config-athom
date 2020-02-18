@@ -43,7 +43,8 @@ module.exports = {
         "mocha/no-async-describe": "error",
         "node/no-unpublished-require": 0,
         "node/no-missing-require": 0,
-        "prefer-arrow-callback": "off"
+        "prefer-arrow-callback": "off",
+        "no-unused-expressions": "off"
       }
     }
   ]
