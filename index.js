@@ -5,7 +5,8 @@ module.exports = {
 
   "extends": [
     "airbnb-base",
-    "plugin:node/recommended"
+    "plugin:node/recommended",
+    "./rules/test", // Import rules for test files (currently mostly mocha rules)
   ],
   
   "parserOptions": {
@@ -96,5 +97,5 @@ module.exports = {
 
   "settings": {
     "import/core-modules": ["homey"]
-  }
+  },
 }
