@@ -36,7 +36,8 @@ module.exports = {
         "node/no-unpublished-require": 0,
         "node/no-missing-require": 0,
         "prefer-arrow-callback": "off",
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "func-names": "off"
       }
     }
   ]
