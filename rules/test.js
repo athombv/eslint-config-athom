@@ -15,14 +15,6 @@ module.exports = {
       "rules": {
         "mocha/no-exclusive-tests": "error",
         "mocha/no-global-tests": "error",
-        "mocha/no-hooks-for-single-case": [
-          "error",
-          {
-            "allow": [
-              "after"
-            ]
-          }
-        ],
         "mocha/handle-done-callback": "error",
         "mocha/max-top-level-suites": [
           "warn",
