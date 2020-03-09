@@ -17,6 +17,7 @@ module.exports = {
     "strict": ["error", "global"],
     
     "no-await-in-loop": "off",
+    "no-shadow": "off",
 
     "lines-between-class-members": [
       "error",
