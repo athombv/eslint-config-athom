@@ -47,8 +47,6 @@ module.exports = {
 
     "no-plusplus": "off",
 
-    "arrow-parens": ["error", "as-needed"],
-
     "class-methods-use-this": "off",
 
     "no-continue": "off",
