@@ -1,9 +1,6 @@
 # eslint-config-athom
 ESLint config for Athom B.V. JavaScript projects.
 
-## :fire: Starting a new project? 
-If you want to create a new project that uses this ESLint config consider running [`npm init github:athombv/nodejs`](https://github.com/athombv/create-nodejs), this will create a solid base for any new Athom project!
-
 ## Usage
 
 In your JavaScript project:
