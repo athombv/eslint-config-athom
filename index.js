@@ -36,6 +36,8 @@ module.exports = {
     "arrow-body-style": "off",
 
     "node/no-missing-require": ["error", { "allowModules": ["homey"] }],
+    
+    "node/no-unpublished-require": ["error", { "allowModules": ["homey"]}],
 
     "no-underscore-dangle": "off",
 
