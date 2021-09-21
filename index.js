@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
 
   "extends": [
     "airbnb-base",
@@ -15,7 +15,7 @@ module.exports = {
 
   "rules": {
     "strict": ["error", "global"],
-    
+
     "no-await-in-loop": "off",
 
     "lines-between-class-members": [
@@ -23,7 +23,7 @@ module.exports = {
       "always",
       { "exceptAfterSingleLine": true }
     ],
-    
+
     "prefer-destructuring": [
       "error",
       {
@@ -95,7 +95,7 @@ module.exports = {
         "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
       }
     ],
-    
+
     "no-shadow": "off",
     "max-len": ["warn", 200],
   },
