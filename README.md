@@ -41,9 +41,3 @@ To make this work as intended you should also have the `node-homey-apps-sdk-v3-t
 ```bash
 $ npm install --save-dev @types/homey@npm:homey-apps-sdk-v3-types
 ```
-
-You can use the [Homey CLI](https://github.com/athombv/node-homey) to automate all this setup by running:
-
-```bash
-$ homey app add-types
-```
