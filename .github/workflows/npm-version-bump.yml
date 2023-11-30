@@ -1,0 +1,61 @@
+name: NPM Version Bump
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: Set version (e.g. 1.2.3, or 1.0.0-rc.1).
+      version_bump:
+        type: choice
+        description: Or choose an automatic version bump.
+        default: none
+        options:
+          - major
+          - minor
+          - patch
+          - none
+
+jobs:
+  npm_version_bump:
+    name: NPM Version Bump
+    runs-on: ubuntu-latest
+    steps:
+      - name: Don't allow version bumps on production
+        if: github.ref == 'refs/heads/production'
+        run: |
+          echo "NPM Version Bump should not be executed on the production branch."
+          exit 1
+
+      - name: Require version or version bump input
+        if: (github.event.inputs.version == '' && github.event.inputs.version_bump == 'none') || (github.event.inputs.version != '' && github.event.inputs.version_bump != 'none')
+        run: |
+          echo "Either version, or version bump (not none) must be provided but not both."
+          exit 1
+
+      - name: Checkout git repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.HOMEY_GITHUB_ACTIONS_BOT_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Set up node 16 environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Set up HomeyGithubActionsBot git user
+        run: |
+          git config --local user.email "sysadmin+githubactions@athom.com"
+          git config --local user.name "Homey Github Actions Bot"
+
+      - name: Set version
+        if: github.event.inputs.version != ''
+        run: npm version ${{ github.event.inputs.version }}
+
+      - name: Automatic version bump
+        if: github.event.inputs.version_bump != 'none'
+        run: npm version ${{ github.event.inputs.version_bump }}
+
+      - name: Push Version
+        run: git push --follow-tags
