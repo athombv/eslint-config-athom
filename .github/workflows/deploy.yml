@@ -37,15 +37,10 @@ on:
     branches:
       - production
       - testing
-  workflow_dispatch:
-    inputs:
-      versionBumpType:
-        description: 'Version bump (major, minor or patch)'
-        required: true
 
 jobs:
-  npm_version_bump_and_publish:
-    name: Update version and publish
+  npm_publish:
+    name: Publish to NPM
 
     # Only run this job if initiator is not the Homey Github Actions Bot to prevent loops and if a version bump is provided
     if: github.actor != 'homey-bot' && (github.event.inputs.versionBumpType == 'patch' || github.event.inputs.versionBumpType == 'minor' || github.event.inputs.versionBumpType == 'major' || contains(github.event.head_commit.message, '#patch') || contains(github.event.head_commit.message, '#minor') || contains(github.event.head_commit.message, '#major'))
@@ -85,21 +80,6 @@ jobs:
       - name: Build
         run: npm ci
 
-      - name: Version bump patch
-        if: github.event.inputs.versionBumpType == 'patch' || contains(github.event.head_commit.message, '#patch') && !contains(github.event.head_commit.message, '#minor') && !contains(github.event.head_commit.message, '#major')
-        run: |
-          npm version patch
-          git push --follow-tags
-      - name: Version bump minor
-        if: github.event.inputs.versionBumpType == 'minor' || contains(github.event.head_commit.message, '#minor') && !contains(github.event.head_commit.message, '#major')
-        run: |
-          npm version minor
-          git push --follow-tags
-      - name: Version bump major
-        if: github.event.inputs.versionBumpType == 'major' || contains(github.event.head_commit.message, '#major')
-        run: |
-          npm version major
-          git push --follow-tags
       # Publish when this action is running on branch production (when publishing a scoped package add --access public)
       - name: Publish
         if: github.ref == 'refs/heads/production'
