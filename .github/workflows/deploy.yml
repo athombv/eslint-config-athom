@@ -1,4 +1,4 @@
-name: NPM
+name: NPM Publish
 
 # About this workflow:
 # It is triggered on push events to branches production and testing. Then it performs a checkout of the current repo
