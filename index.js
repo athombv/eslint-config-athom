@@ -15,6 +15,7 @@ module.exports = {
 
   "rules": {
     "strict": ["error", "global"],
+    "padded-blocks": "off",
 
     "no-await-in-loop": "off",
 
