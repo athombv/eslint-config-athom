@@ -65,11 +65,6 @@ module.exports = {
       { "vars": "all", "args": "none", "ignoreRestSiblings": true }
     ],
 
-    "padded-blocks": [
-      "error",
-      { "blocks": "never", "switches": "never", "classes": "always" }
-    ],
-
     "nonblock-statement-body-position": [
       "error",
       "beside",
@@ -97,6 +92,14 @@ module.exports = {
     "no-shadow": "off",
     "max-len": ["warn", 200],
   },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.mts", "*.cts"],
+      "rules": {
+        "strict": "off"
+      }
+    }
+  ],
 
   "settings": {
     "import/core-modules": ["homey"]
