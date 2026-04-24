@@ -11,26 +11,20 @@ module.exports = [
   js.configs.recommended,
 
   // Extend the recommended rules for Node.js files.
-  n.configs.recommended,
+  n.configs['flat/recommended'],
 
-  // Add basic support for TypeScript files, including type-aware rules.
-  ...ts.configs.recommended,
+  // Add basic support for TypeScript files, including type-aware rules. For TypeScript files only.
+  ...ts.config({
+    files: ['**/*.ts', '**/*.mts', '**/*.cts'],
+    extends: ts.configs.recommended,
+  }),
 
   // Rules that apply to all JavaScript files, regardless of module type.
   {
-    files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts', '**/*.mts', '**/*.cts'],
     rules: {
       'lines-between-class-members': ['warn', 'always', { 'exceptAfterSingleLine': true }],
-
-      'prefer-destructuring': [ 'warn', {
-        'VariableDeclarator': { 'array': false, 'object': true },
-        'AssignmentExpression': { 'array': false, 'object': false },
-      }, { 'enforceForRenamedProperties': false } ],
-
+      'max-len': ['warn', 200],
       'no-empty': ['error', { 'allowEmptyCatch': true }],
-
-      'no-unused-vars': ['error', { 'vars': 'all', 'args': 'none', 'ignoreRestSiblings': true }],
-
       'no-restricted-syntax': [
         'error',
         {
@@ -46,12 +40,30 @@ module.exports = [
           'message': '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
         }
       ],
+      'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used' }],
+      'prefer-destructuring': [ 'warn', {
+        'VariableDeclarator': { 'array': false, 'object': true },
+        'AssignmentExpression': { 'array': false, 'object': false },
+      }, { 'enforceForRenamedProperties': false } ],
 
-      'max-len': ['warn', 200],
     },
+
+    settings: {
+      'n': {
+        'tryExtensions': ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts'],
+        'typescriptExtensionMap': [
+          ['', '.js'],
+          ['.ts', '.js'],
+          ['.js', '.js'],
+          ['.cts', '.cjs'],
+          ['.mts', '.mjs'],
+          ['.tsx', '.jsx'],
+        ],
+      },
+    }
   },
 
-  // Import globals for ESM files.
+  // ESM rules
   {
     files: ['**/*.mjs'],
     languageOptions: {
@@ -59,22 +71,29 @@ module.exports = [
       // nodeBuiltin does not include some globals like __dirname and __filename
       globals: globals.nodeBuiltin,
     },
+    rules: {
+      'strict': ['warn', 'global'],
+    },
   },
 
-  // Import globals for CommonJS files.
+  // CommonJS rules
   {
-    files: ['**/*.js', '**/*.cjs'],
+    files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'script',
       globals: globals.node,
     },
-  },
-
-  // Force 'use strict' only in CommonJS files.
-  {
-    files: ['**/*.js', '**/*.cjs'],
     rules: {
       'strict': ['error', 'global'],
+    },
+  },
+
+  // JavaScript specific rules that apply to all JavaScript files, regardless of module type.
+  {
+    files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    rules: {
+      // Only allow unused variables in JavaScript arguments, TypeScript should handle these properly.
+      'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used', argsIgnorePattern: '^_' }],
     },
   },
 

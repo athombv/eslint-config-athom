@@ -5,5 +5,8 @@ const recommended = require('./recommended');
 
 module.exports = [
   ...recommended,
-  ...ts.configs.recommendedTypeChecked,
+  ...ts.config({
+    files: ['**/*.ts', '**/*.mts', '**/*.cts'],
+    extends: ts.configs.recommendedTypeCheckedOnly,
+  }),
 ];
