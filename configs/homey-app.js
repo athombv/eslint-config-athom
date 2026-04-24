@@ -14,13 +14,18 @@ module.exports = [
   homeyApp.configs.recommended,
 
   {
+    settings: {
+      node: {
+        version: '>=22.17.0',
+      },
+    },
     languageOptions: {
       sourceType: getAppSourceType(),
     },
     rules: {
       'n/no-missing-import': ['error', { allowModules: ['homey'] }],
       'n/no-missing-require': ['error', { allowModules: ['homey'] }],
-      'n/no-unsupported-features/es-syntax': ['error', { ignores: ['modules'] }],
+      'n/no-unpublished-import': ['error', { allowModules: ['homey'] }],
       'preserve-caught-error': 'off',
     }
   },

@@ -101,7 +101,7 @@ module.exports = [
   {
     files: ['**/*.ts', '**/*.mts', '**/*.cts'],
     rules: {
-      'no-underscore-dangle': 'warn'
+      'no-underscore-dangle': ['warn', { allow: ['__'] }],
     },
   },
 
