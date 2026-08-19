@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-athom",
-  "version": "3.1.2",
+  "version": "3.1.5",
   "description": "ESLint config for Athom B.V.",
   "repository": {
     "type": "git",
@@ -17,23 +17,23 @@
     "npmPublishTagStaging": "beta"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^6.13.1",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-homey-app": "^1.0.2",
-    "eslint-plugin-import": "^2.24.2",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-homey-app": "^3.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-mocha": "^6.3.0",
     "eslint-plugin-node": "^11.1.0",
-    "typescript": "^4.4.3"
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "eslint": "^7.5.0",
-    "nodemon": "^2.0.12"
+    "eslint": "^8.57.1",
+    "nodemon": "^3.1.14"
   },
   "peerDependencies": {
-    "eslint": ">=7.5.0"
+    "eslint": ">=8.57.1 <9.0.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
   }
 }
