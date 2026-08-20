@@ -14,8 +14,11 @@ name: NPM Publish
 # 2. If you have protected branches, go to Branches > edit protected branch > enable 'Restrict who can push to
 #    matching branches' and add the 'athombv/github-actions' team.
 
+# Publishing to npm uses OIDC (npm Trusted Publishing) rather than a long-lived NPM_AUTH_TOKEN secret. This requires
+# `id-token: write` permission on the job, and a Trusted Publisher configured on the npm package pointing at this
+# repo/workflow. See: https://docs.npmjs.com/trusted-publishers
+
 # Required secrets:
-# - NPM_AUTH_TOKEN: required for publishing to npm
 # - SLACK_WEBHOOK_URL: required for posting a message in #software
 # - HOMEY_GITHUB_ACTIONS_BOT_PERSONAL_ACCESS_TOKEN: required when using `npm version` to commit and push to protected
 #   branch. If pushing to a non-protected branch replace HOMEY_GITHUB_ACTIONS_BOT_PERSONAL_ACCESS_TOKEN with GITHUB_TOKEN
@@ -46,6 +49,11 @@ jobs:
     if: github.actor != 'homey-bot'
 
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write # Needed to mint the OIDC token for npm Trusted Publishing
+
     steps:
     
       # Checks out the current repository.
@@ -81,6 +89,7 @@ jobs:
         run: npm ci
 
       # Publish when this action is running on branch production (when publishing a scoped package add --access public)
+      # Authenticates via OIDC (npm Trusted Publishing) - no NODE_AUTH_TOKEN needed.
       - name: Publish
         if: github.ref == 'refs/heads/production'
         run: |
@@ -88,18 +97,15 @@ jobs:
           VERSION="$(node -p "require('./package.json').version")"
           echo package_version=${VERSION} >> $GITHUB_ENV
           echo $package_version
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       # Publish to beta when this action is running on branch testing (when publishing a scoped package add --access public)
+      # Authenticates via OIDC (npm Trusted Publishing) - no NODE_AUTH_TOKEN needed.
       - name: Publish to beta
         if: github.ref == 'refs/heads/testing'
         run: |
           npm publish --tag beta
           VERSION="$(node -p "require('./package.json').version")@beta"
           echo package_version=${VERSION} >> $GITHUB_ENV
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       # Post a Slack notification in #software on success/failure
       - name: Slack notify
