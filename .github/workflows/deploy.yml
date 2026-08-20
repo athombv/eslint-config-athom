@@ -95,8 +95,8 @@ jobs:
         run: |
           npm publish
           VERSION="$(node -p "require('./package.json').version")"
-          echo package_version=${VERSION} >> $GITHUB_ENV
-          echo $package_version
+          echo "package_version=$VERSION" >> "$GITHUB_ENV"
+          echo "$VERSION"
 
       # Publish to beta when this action is running on branch testing (when publishing a scoped package add --access public)
       # Authenticates via OIDC (npm Trusted Publishing) - no NODE_AUTH_TOKEN needed.
