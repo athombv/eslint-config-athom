@@ -92,6 +92,25 @@ module.exports = {
 
     "no-shadow": "off",
     "max-len": ["warn", 200],
+
+    "no-import-assign": "warn",
+    "no-loss-of-precision": "warn",
+    "no-constructor-return": "warn",
+    "no-setter-return": "warn",
+    "no-promise-executor-return": "warn",
+    "no-useless-backreference": "warn",
+    "import/no-import-module-exports": "warn",
+
+    "default-case-last": "off",
+    "default-param-last": "off",
+    "function-call-argument-newline": "off",
+    "function-paren-newline": ["error", "consistent"],
+    "grouped-accessor-pairs": "off",
+    "no-restricted-exports": "off",
+    "prefer-exponentiation-operator": "off",
+    "prefer-regex-literals": "off",
+    "no-nonoctal-decimal-escape": "off",
+    "import/no-relative-packages": "off",
   },
   "overrides": [
     {

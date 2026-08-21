@@ -21,7 +21,7 @@ Now, edit your project's `/package.json` file to contain the following:
 
 ```json
 "engines": {
-  "node": ">=12.16.1"
+  "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
 }
 ```
 
