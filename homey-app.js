@@ -16,6 +16,7 @@ module.exports = {
     "node/no-missing-import": ["error", { "allowModules": ["homey"] }],
     "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }],
 
+    "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-floating-promises": ["error", { "ignoreVoid": false }],
     "@typescript-eslint/no-misused-promises": "error",
